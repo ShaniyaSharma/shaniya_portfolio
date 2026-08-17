@@ -38,7 +38,7 @@ export default function Projects() {
     return () => observer.disconnect();
   }, []);
 
-  // Projects Data
+  // Projects Data - Removed Weather Dashboard and Cybersecurity Dashboard
   const projects = [
     {
       id: 1,
@@ -88,7 +88,7 @@ export default function Projects() {
       category: 'Frontend',
       tech: ['React', 'Tailwind CSS', 'Framer Motion'],
       status: 'Completed',
-      github: 'https://github.com/ShaniyaSharma/portfolio.git',
+      github: 'https://github.com/ShaniyaSharma/shaniya_portfolio.git',
       demo: 'https://your-portfolio-link.com',
       features: [
         'Dark/Light Mode Toggle',
@@ -97,63 +97,6 @@ export default function Projects() {
         'Interactive UI',
         'Project Showcase',
         'Contact Form'
-      ]
-    },
-    {
-      id: 4,
-      title: 'E-Commerce API',
-      description: 'Secure e-commerce backend API with payment integration, product management, and order processing system.',
-      icon: '🛒',
-      category: 'Backend',
-      tech: ['Node.js', 'Express', 'MongoDB', 'Stripe', 'JWT'],
-      status: 'In Progress',
-      github: 'https://github.com/ShaniyaSharma/ecommerce-api.git',
-      demo: 'https://your-demo-link.com',
-      features: [
-        'Product Management',
-        'Payment Integration',
-        'Order Processing',
-        'User Authentication',
-        'Admin Dashboard',
-        'Inventory Management'
-      ]
-    },
-    {
-      id: 5,
-      title: 'Weather Dashboard',
-      description: 'Real-time weather application with interactive maps, 5-day forecast, and location-based weather updates.',
-      icon: '🌤️',
-      category: 'Frontend',
-      tech: ['React', 'Leaflet', 'Chart.js'],
-      status: 'Completed',
-      github: 'https://github.com/ShaniyaSharma/weather-app.git',
-      demo: 'https://your-demo-link.com',
-      features: [
-        'Real-time Weather Data',
-        '5-Day Forecast',
-        'Interactive Maps',
-        'Location Search',
-        'Weather Charts',
-        'Responsive Design'
-      ]
-    },
-    {
-      id: 6,
-      title: 'Cybersecurity Dashboard',
-      description: 'Security monitoring dashboard with vulnerability scanning, real-time alerts, and security analytics.',
-      icon: '🔒',
-      category: 'Full Stack',
-      tech: ['React', 'Node.js', 'MongoDB'],
-      status: 'Completed',
-      github: 'https://github.com/ShaniyaSharma/cybersecurity-dashboard.git',
-      demo: 'https://your-demo-link.com',
-      features: [
-        'Vulnerability Scanning',
-        'Real-time Alerts',
-        'Security Analytics',
-        'Threat Detection',
-        'Dashboard Visualizations',
-        'Report Generation'
       ]
     }
   ];

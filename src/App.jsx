@@ -1,11 +1,11 @@
-// App.jsx
+// src/App.jsx
 import React from 'react';
-import { ThemeProvider, useTheme } from './context/Themecontext';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
-import Project from './components/Project';
+import Projects from './components/Projects';
 import Contact from './components/Contact';
 
 function App() {
@@ -20,17 +20,55 @@ function AppContent() {
   const { isDark } = useTheme();
 
   return (
-    <div className={`min-h-screen transition-colors duration-300 ${
-      isDark 
-        ? 'bg-linear-to-br from-black via-gray-900 to-black' 
-        : 'bg-linear-to-br from-amber-50 via-orange-50/50 to-yellow-50'
-    }`}>
+    <div className="min-h-screen transition-colors duration-300">
+      <div className={`fixed inset-0 -z-10 ${isDark ? 'bg-black' : 'bg-gray-50'}`}>
+        {Array.from({ length: 25 }, (_, i) => ({
+          id: i,
+          x: Math.random() * 100,
+          y: Math.random() * 100,
+          size: Math.random() * 4 + 2,
+          duration: Math.random() * 10 + 10,
+          delay: Math.random() * 5,
+        })).map((particle) => (
+          <div
+            key={particle.id}
+            className={`absolute rounded-full ${isDark ? 'bg-orange-400/10' : 'bg-orange-400/15'}`}
+            style={{
+              left: `${particle.x}%`,
+              top: `${particle.y}%`,
+              width: particle.size,
+              height: particle.size,
+              animation: `float ${particle.duration}s ease-in-out ${particle.delay}s infinite`,
+            }}
+          />
+        ))}
+        <div
+          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${isDark ? 'bg-orange-500/20' : 'bg-orange-300/30'}`}
+          style={{ animation: 'pulse 8s ease-in-out infinite alternate' }}
+        />
+        <div
+          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${isDark ? 'bg-yellow-500/20' : 'bg-yellow-300/30'}`}
+          style={{ animation: 'pulse 6s ease-in-out infinite alternate-reverse' }}
+        />
+      </div>
+
       <Navbar />
       <Hero />
       <Skills />
       <Experience />
-      <Project />
+      <Projects />
       <Contact />
+
+      <style>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+          50% { transform: translateY(-30px) translateX(20px); opacity: 0.8; }
+        }
+        @keyframes pulse {
+          0% { transform: scale(1); opacity: 0.3; }
+          100% { transform: scale(1.2); opacity: 0.5; }
+        }
+      `}</style>
     </div>
   );
 }

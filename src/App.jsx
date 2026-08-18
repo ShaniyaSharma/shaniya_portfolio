@@ -1,6 +1,6 @@
 // App.jsx
 import React from 'react';
-import { ThemeProvider, useTheme } from './context/ThemeContext';
+import { ThemeProvider, useTheme } from './context/Themecontext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Skills from './components/Skills';

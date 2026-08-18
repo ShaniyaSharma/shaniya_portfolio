@@ -26,15 +26,15 @@ export default function Hero() {
     title: 'MERN Stack Developer',
     subtitle: 'Building modern & scalable web applications',
     description: 'Passionate MERN Stack Developer with expertise in cybersecurity, frontend & backend development. Currently pursuing BCA and learning Data Structures & Algorithms to build efficient solutions.',
-    avatar: 'https://ui-avatars.com/api/?name=Shaniya+Sharma&size=200&background=f97316&color=ffffff&bold=true',
+    avatar: '/shaniya1.png',
     stats: [
-      { icon: Code2, value: '20+', label: 'Projects' },
-      { icon: Briefcase, value: '2+', label: 'Years Experience' },
-      { icon: Users, value: '15+', label: 'Happy Clients' },
+      { icon: Code2, value: '10+', label: 'Projects' },
+      { icon: Briefcase, value: '1.5+', label: 'Years Experience' },
+      { icon: Users, value: '7+', label: 'Happy Clients' },
       { icon: Award, value: '5+', label: 'Certifications' },
     ],
     socials: [
-      { icon: Mail, href: 'mailto:your@email.com', label: 'Email' },
+      { icon: Mail, href: 'mailto:shaniyasharma17@gmail.com', label: 'Email' },
     ],
     resumeLink: '#',
     education: {
@@ -115,11 +115,11 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      {/* Background - Same as other sections */}
+      {/* Background */}
       <div className={`absolute inset-0 ${
         isDark ? 'bg-black' : 'bg-gray-50'
       }`}>
-        {/* Floating particles - Same as other sections */}
+        {/* Floating particles */}
         {Array.from({ length: 25 }, (_, i) => ({
           id: i,
           x: Math.random() * 100,
@@ -145,7 +145,7 @@ export default function Hero() {
           />
         ))}
         
-        {/* Animated circles - Same as other sections */}
+        {/* Animated circles */}
         <div
           className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${
             isDark ? 'bg-orange-500/20' : 'bg-orange-300/30'
@@ -169,14 +169,14 @@ export default function Hero() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-20 py-20"
+          className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 py-16"
         >
           {/* Left Content */}
           <motion.div 
             variants={containerVariants}
             className="flex-1 text-center lg:text-left order-2 lg:order-1"
           >
-            {/* Badge - Updated to warm colors */}
+            {/* Badge */}
             <motion.div
               variants={itemVariants}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 ${
@@ -192,7 +192,7 @@ export default function Hero() {
               <span className="text-sm font-medium">Available for work</span>
             </motion.div>
 
-            {/* Name & Title - Updated to warm colors */}
+            {/* Name & Title */}
             <motion.h1
               variants={itemVariants}
               className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 ${
@@ -234,7 +234,7 @@ export default function Hero() {
               {profile.description}
             </motion.p>
 
-            {/* Education & Skills Section - Updated to warm colors */}
+            {/* Education & Skills Section */}
             <motion.div
               variants={itemVariants}
               className="mb-8"
@@ -299,7 +299,7 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* CTA Buttons - Updated to warm colors */}
+            {/* CTA Buttons */}
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
@@ -367,12 +367,12 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Profile Image & Stats */}
+          {/* Right Content - Profile Image - Larger Square with Orange Border */}
           <motion.div
             variants={containerVariants}
             className="flex-1 flex flex-col items-center order-1 lg:order-2"
           >
-            {/* Profile Image with Glow Effect - Updated to warm colors */}
+            {/* Profile Image - Larger Square with Orange Border */}
             <motion.div
               variants={imageVariants}
               className="relative"
@@ -381,34 +381,37 @@ export default function Hero() {
                 animate={floatingAnimation}
                 className="relative"
               >
-                {/* Glow effect */}
-                <div className={`absolute inset-0 rounded-full blur-2xl ${
+                {/* Glow effect - Orange glow */}
+                <div className={`absolute inset-0 rounded-2xl blur-2xl ${
                   isDark ? 'bg-orange-500/30' : 'bg-orange-400/30'
                 }`} />
                 
-                {/* Image container */}
-                <div className={`relative w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full p-1 ${
+                {/* Image container - Larger size with Orange Border */}
+                <div className={`relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl p-2 ${
                   isDark 
-                    ? 'bg-gradient-to-r from-orange-400 via-orange-500 to-yellow-500' 
-                    : 'bg-gradient-to-r from-orange-500 via-orange-600 to-yellow-600'
+                    ? 'bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500' 
+                    : 'bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500'
                 }`}>
-                  <div className={`w-full h-full rounded-full overflow-hidden ${
+                  <div className={`w-full h-full rounded-2xl overflow-hidden ${
                     isDark ? 'bg-black' : 'bg-white'
                   }`}>
                     <img
                       src={profile.avatar}
                       alt={profile.name}
-                      className="w-full h-full object-cover"
+                      className=" h-fit w-full object-cover grayscale contrast-110 brightness-105"
+                      onError={(e) => {
+                        e.target.src = 'https://ui-avatars.com/api/?name=Shaniya+Sharma&size=200&background=666666&color=ffffff&bold=true';
+                      }}
                     />
                   </div>
                 </div>
 
-                {/* Status indicator */}
+                {/* Status indicator - Orange theme */}
                 <motion.div
-                  className={`absolute bottom-4 right-4 p-2 rounded-full border-2 ${
+                  className={`absolute -bottom-2 -right-2 p-2.5 rounded-full border-2 ${
                     isDark
                       ? 'bg-black border-orange-400'
-                      : 'bg-white border-orange-600'
+                      : 'bg-white border-orange-500'
                   }`}
                   animate={{
                     scale: [1, 1.1, 1],
@@ -427,10 +430,10 @@ export default function Hero() {
               </motion.div>
             </motion.div>
 
-            {/* Stats Cards - Updated to warm colors */}
+            {/* Stats Cards */}
             <motion.div
               variants={containerVariants}
-              className="grid grid-cols-2 gap-4 mt-8 w-full max-w-md"
+              className="grid grid-cols-2 gap-3 mt-6 w-full max-w-sm"
             >
               {profile.stats.map((stat, index) => {
                 const Icon = stat.icon;
@@ -439,21 +442,21 @@ export default function Hero() {
                     key={index}
                     variants={itemVariants}
                     whileHover={{ scale: 1.05, y: -5 }}
-                    className={`p-4 rounded-xl text-center transition-all duration-300 ${
+                    className={`p-3 rounded-xl text-center transition-all duration-300 ${
                       isDark
                         ? 'bg-white/5 backdrop-blur-sm border border-orange-500/20 hover:border-orange-400/40'
                         : 'bg-white/80 backdrop-blur-sm shadow-md border border-orange-200/50 hover:border-orange-300 hover:shadow-lg'
                     }`}
                   >
-                    <Icon className={`w-6 h-6 mx-auto mb-2 ${
+                    <Icon className={`w-5 h-5 mx-auto mb-1 ${
                       isDark ? 'text-orange-400' : 'text-orange-500'
                     }`} />
-                    <div className={`text-2xl font-bold ${
+                    <div className={`text-xl font-bold ${
                       isDark ? 'text-orange-100' : 'text-gray-800'
                     }`}>
                       {stat.value}
                     </div>
-                    <div className={`text-sm ${
+                    <div className={`text-xs ${
                       isDark ? 'text-orange-300/70' : 'text-gray-600'
                     }`}>
                       {stat.label}
@@ -466,7 +469,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator - Updated to warm colors */}
+      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{
@@ -479,7 +482,7 @@ export default function Hero() {
         }}
       >
         <div className={`w-6 h-10 rounded-full border-2 flex items-start justify-center p-1 ${
-          isDark ? 'border-orange-400/50' : 'border-gray-400'
+          isDark ? 'border-orange-400/50' : 'border-orange-400'
         }`}>
           <motion.div
             className={`w-1 h-2 rounded-full ${

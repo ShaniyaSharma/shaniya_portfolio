@@ -367,12 +367,12 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Profile Image - Larger Square with Orange Border */}
+          {/* Right Content - Profile Image */}
           <motion.div
             variants={containerVariants}
             className="flex-1 flex flex-col items-center order-1 lg:order-2"
           >
-            {/* Profile Image - Larger Square with Orange Border */}
+            {/* Profile Image */}
             <motion.div
               variants={imageVariants}
               className="relative"
@@ -381,12 +381,12 @@ export default function Hero() {
                 animate={floatingAnimation}
                 className="relative"
               >
-                {/* Glow effect - Orange glow */}
+                {/* Glow effect */}
                 <div className={`absolute inset-0 rounded-2xl blur-2xl ${
                   isDark ? 'bg-orange-500/30' : 'bg-orange-400/30'
                 }`} />
                 
-                {/* Image container - Larger size with Orange Border */}
+                {/* Image container */}
                 <div className={`relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl p-2 ${
                   isDark 
                     ? 'bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500' 
@@ -398,7 +398,7 @@ export default function Hero() {
                     <img
                       src={profile.avatar}
                       alt={profile.name}
-                      className=" h-fit w-full object-cover grayscale contrast-110 brightness-105"
+                      className="w-fit h-fit object-cover grayscale contrast-110 brightness-105"
                       onError={(e) => {
                         e.target.src = 'https://ui-avatars.com/api/?name=Shaniya+Sharma&size=200&background=666666&color=ffffff&bold=true';
                       }}
@@ -406,7 +406,7 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Status indicator - Orange theme */}
+                {/* Status indicator */}
                 <motion.div
                   className={`absolute -bottom-2 -right-2 p-2.5 rounded-full border-2 ${
                     isDark
@@ -500,8 +500,8 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* CSS Animations */}
-      <style jsx>{`
+      {/* CSS Animations - FIXED: Removed jsx attribute */}
+      <style>{`
         @keyframes float {
           0%, 100% {
             transform: translateY(0px) translateX(0px);

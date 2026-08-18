@@ -14,10 +14,13 @@ export default function() {
     <Hero/>
     <Navbar/>
     {/* <About/> */}
-    <Contact/>
+    
     <Skills/>
-    <Project/>
+    
     <Experience/>
+    
+    <Project/>
+    <Contact/>
     </div>
 
   )

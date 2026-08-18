@@ -271,7 +271,6 @@ export default function Experience() {
         </motion.div>
       </div>
 
-      {/* CSS Animations - FIXED: Removed jsx attribute */}
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }

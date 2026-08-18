@@ -4,13 +4,11 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  /* Custom Colors */
   --color-orange-400: #fb923c;
   --color-orange-500: #f97316;
   --color-orange-600: #ea580c;
   --color-orange-700: #c2410c;
   
-  /* Animations */
   --animate-float: float 3s ease-in-out infinite;
   --animate-pulse-slow: pulse 8s ease-in-out infinite alternate;
   
@@ -35,7 +33,6 @@
   }
 }
 
-/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
 }

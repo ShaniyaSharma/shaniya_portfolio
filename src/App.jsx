@@ -1,12 +1,12 @@
 // src/App.jsx
 import React from 'react';
-import { useTheme } from './context/ThemeContext';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Skills from './components/Skills';
-import Experience from './components/Experience';
-import Projects from './components/Projects';
-import Contact from './components/Contact';
+import { useTheme } from './context/ThemeContext.jsx';
+import Navbar from './components/Navbar.jsx';
+import Hero from './components/Hero.jsx';
+import Skills from './components/Skills.jsx';
+import Experience from './components/Experience.jsx';
+import Projects from './components/Projects.jsx';
+import Contact from './components/Contact.jsx';
 
 function App() {
   const { isDark } = useTheme();

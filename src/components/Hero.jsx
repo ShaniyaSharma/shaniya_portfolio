@@ -1,4 +1,4 @@
-// components/Hero.jsx
+// src/components/Hero.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -20,13 +20,12 @@ import { useTheme } from '../context/ThemeContext';
 export default function Hero() {
   const { isDark } = useTheme();
 
-  // Profile data - Updated with your information
   const profile = {
     name: 'Shaniya Sharma',
     title: 'MERN Stack Developer',
     subtitle: 'Building modern & scalable web applications',
     description: 'Passionate MERN Stack Developer with expertise in cybersecurity, frontend & backend development. Currently pursuing BCA and learning Data Structures & Algorithms to build efficient solutions.',
-    avatar: '/shaniya1.png',
+    avatar: '/sharma.png',
     stats: [
       { icon: Code2, value: '10+', label: 'Projects' },
       { icon: Briefcase, value: '1.5+', label: 'Years Experience' },
@@ -50,7 +49,6 @@ export default function Hero() {
     }
   };
 
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -115,11 +113,7 @@ export default function Hero() {
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
-      {/* Background */}
-      <div className={`absolute inset-0 ${
-        isDark ? 'bg-black' : 'bg-gray-50'
-      }`}>
-        {/* Floating particles */}
+      <div className={`absolute inset-0 ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}>
         {Array.from({ length: 25 }, (_, i) => ({
           id: i,
           x: Math.random() * 100,
@@ -130,11 +124,7 @@ export default function Hero() {
         })).map((particle) => (
           <div
             key={particle.id}
-            className={`absolute rounded-full ${
-              isDark 
-                ? 'bg-orange-400/10' 
-                : 'bg-orange-400/15'
-            }`}
+            className={`absolute rounded-full ${isDark ? 'bg-gray-500/10' : 'bg-gray-400/20'}`}
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
@@ -144,23 +134,13 @@ export default function Hero() {
             }}
           />
         ))}
-        
-        {/* Animated circles */}
         <div
-          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${
-            isDark ? 'bg-orange-500/20' : 'bg-orange-300/30'
-          }`}
-          style={{
-            animation: 'pulse 8s ease-in-out infinite alternate'
-          }}
+          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${isDark ? 'bg-gray-600/20' : 'bg-gray-300/30'}`}
+          style={{ animation: 'pulse 8s ease-in-out infinite alternate' }}
         />
         <div
-          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${
-            isDark ? 'bg-yellow-500/20' : 'bg-yellow-300/30'
-          }`}
-          style={{
-            animation: 'pulse 6s ease-in-out infinite alternate-reverse'
-          }}
+          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${isDark ? 'bg-gray-700/20' : 'bg-gray-400/30'}`}
+          style={{ animation: 'pulse 6s ease-in-out infinite alternate-reverse' }}
         />
       </div>
 
@@ -171,7 +151,6 @@ export default function Hero() {
           animate="visible"
           className="min-h-screen flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16 py-16"
         >
-          {/* Left Content */}
           <motion.div 
             variants={containerVariants}
             className="flex-1 text-center lg:text-left order-2 lg:order-1"
@@ -181,27 +160,27 @@ export default function Hero() {
               variants={itemVariants}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 ${
                 isDark 
-                  ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' 
-                  : 'bg-orange-100 text-orange-700 border border-orange-200'
+                  ? 'bg-gray-700/30 text-gray-300 border border-gray-600/30' 
+                  : 'bg-gray-200/50 text-gray-700 border border-gray-300/30'
               }`}
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-500"></span>
               </span>
               <span className="text-sm font-medium">Available for work</span>
             </motion.div>
 
-            {/* Name & Title */}
+            {/* Name & Title - White Text */}
             <motion.h1
               variants={itemVariants}
               className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 ${
-                isDark ? 'text-orange-100' : 'text-gray-800'
+                isDark ? 'text-white' : 'text-gray-900'
               }`}
             >
               Hi, I'm{' '}
               <span className={`${
-                isDark ? 'text-orange-400' : 'text-orange-600'
+                isDark ? 'text-gray-300' : 'text-gray-600'
               }`}>
                 {profile.name}
               </span>
@@ -210,7 +189,7 @@ export default function Hero() {
             <motion.h2
               variants={itemVariants}
               className={`text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 ${
-                isDark ? 'text-orange-300' : 'text-gray-700'
+                isDark ? 'text-gray-300' : 'text-gray-700'
               }`}
             >
               {profile.title}
@@ -219,7 +198,7 @@ export default function Hero() {
             <motion.p
               variants={itemVariants}
               className={`text-lg lg:text-xl mb-6 max-w-2xl mx-auto lg:mx-0 ${
-                isDark ? 'text-orange-300/70' : 'text-gray-600'
+                isDark ? 'text-gray-300' : 'text-gray-600'
               }`}
             >
               {profile.subtitle}
@@ -228,7 +207,7 @@ export default function Hero() {
             <motion.p
               variants={itemVariants}
               className={`text-base lg:text-lg mb-8 max-w-xl mx-auto lg:mx-0 ${
-                isDark ? 'text-orange-300/60' : 'text-gray-600/80'
+                isDark ? 'text-gray-400' : 'text-gray-600'
               }`}
             >
               {profile.description}
@@ -241,23 +220,22 @@ export default function Hero() {
             >
               <div className="flex items-center gap-2 mb-3 justify-center lg:justify-start flex-wrap">
                 <GraduationCap className={`w-5 h-5 ${
-                  isDark ? 'text-orange-400' : 'text-orange-600'
+                  isDark ? 'text-gray-400' : 'text-gray-600'
                 }`} />
                 <span className={`font-semibold ${
-                  isDark ? 'text-orange-100' : 'text-gray-800'
+                  isDark ? 'text-white' : 'text-gray-900'
                 }`}>
                   {profile.education.degree}
                 </span>
                 <span className={`text-sm px-3 py-0.5 rounded-full ${
                   isDark 
-                    ? 'bg-orange-500/20 text-orange-300 border border-orange-400/20' 
-                    : 'bg-orange-100 text-orange-700 border border-orange-200'
+                    ? 'bg-gray-700/30 text-gray-300 border border-gray-600/30' 
+                    : 'bg-gray-200/50 text-gray-700 border border-gray-300/30'
                 }`}>
                   {profile.education.specialization}
                 </span>
               </div>
               
-              {/* Skills Grid */}
               <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
                 {profile.education.skills.map((skill, index) => {
                   const Icon = skill.icon;
@@ -271,12 +249,12 @@ export default function Hero() {
                       whileHover={{ scale: 1.05, y: -2 }}
                       className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm ${
                         isDark
-                          ? 'bg-white/5 border border-orange-500/20 hover:border-orange-400/40'
-                          : 'bg-white/80 border border-orange-200/50 hover:border-orange-300'
+                          ? 'bg-white/5 border border-gray-600/30 hover:border-gray-400/40'
+                          : 'bg-white/50 border border-gray-300/30 hover:border-gray-400/40'
                       }`}
                     >
                       <Icon className={`w-4 h-4 ${skill.color}`} />
-                      <span className={isDark ? 'text-orange-200/80' : 'text-gray-700'}>
+                      <span className={isDark ? 'text-gray-300' : 'text-gray-700'}>
                         {skill.name}
                       </span>
                     </motion.div>
@@ -290,7 +268,7 @@ export default function Hero() {
                   className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-sm ${
                     isDark
                       ? 'bg-yellow-500/10 border border-yellow-500/20 text-yellow-400'
-                      : 'bg-yellow-50 border border-yellow-200 text-yellow-700'
+                      : 'bg-yellow-500/10 border border-yellow-500/20 text-yellow-600'
                   }`}
                 >
                   <Activity className="w-4 h-4" />
@@ -299,7 +277,7 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Grey Theme */}
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
@@ -308,8 +286,8 @@ export default function Hero() {
                 href={profile.resumeLink}
                 className={`group flex items-center gap-2 px-8 py-3 rounded-lg font-medium transition-all duration-300 ${
                   isDark
-                    ? 'bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/30'
-                    : 'bg-orange-600 hover:bg-orange-700 text-white shadow-lg shadow-orange-600/30'
+                    ? 'bg-gray-600 hover:bg-gray-500 text-white shadow-lg shadow-gray-600/30'
+                    : 'bg-gray-700 hover:bg-gray-800 text-white shadow-lg shadow-gray-700/30'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -322,8 +300,8 @@ export default function Hero() {
                 href="#contact"
                 className={`group flex items-center gap-2 px-8 py-3 rounded-lg font-medium transition-all duration-300 border-2 ${
                   isDark
-                    ? 'border-orange-400 text-orange-400 hover:bg-orange-400/10'
-                    : 'border-orange-600 text-orange-600 hover:bg-orange-600/10'
+                    ? 'border-gray-500 text-gray-300 hover:bg-gray-700/30'
+                    : 'border-gray-600 text-gray-700 hover:bg-gray-200/50'
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -339,7 +317,7 @@ export default function Hero() {
               className="flex items-center gap-3 mt-8 justify-center lg:justify-start"
             >
               <span className={`text-sm font-medium ${
-                isDark ? 'text-orange-300/70' : 'text-gray-600'
+                isDark ? 'text-gray-300' : 'text-gray-600'
               }`}>
                 Connect with me:
               </span>
@@ -353,8 +331,8 @@ export default function Hero() {
                     rel="noopener noreferrer"
                     className={`p-2.5 rounded-lg transition-all duration-300 ${
                       isDark
-                        ? 'text-orange-300/70 hover:text-orange-400 hover:bg-orange-400/10'
-                        : 'text-gray-600 hover:text-orange-600 hover:bg-orange-600/10'
+                        ? 'text-gray-300 hover:text-white hover:bg-gray-700/30'
+                        : 'text-gray-600 hover:text-gray-900 hover:bg-gray-200/50'
                     }`}
                     whileHover={{ scale: 1.15, rotate: 5 }}
                     whileTap={{ scale: 0.9 }}
@@ -372,7 +350,6 @@ export default function Hero() {
             variants={containerVariants}
             className="flex-1 flex flex-col items-center order-1 lg:order-2"
           >
-            {/* Profile Image */}
             <motion.div
               variants={imageVariants}
               className="relative"
@@ -381,24 +358,22 @@ export default function Hero() {
                 animate={floatingAnimation}
                 className="relative"
               >
-                {/* Glow effect */}
                 <div className={`absolute inset-0 rounded-2xl blur-2xl ${
-                  isDark ? 'bg-orange-500/30' : 'bg-orange-400/30'
+                  isDark ? 'bg-gray-500/20' : 'bg-gray-400/20'
                 }`} />
                 
-                {/* Image container */}
-                <div className={`relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-2xl p-2 ${
+                <div className={`relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-2xl p-2 ${
                   isDark 
-                    ? 'bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500' 
-                    : 'bg-gradient-to-r from-orange-500 via-orange-400 to-orange-500'
+                    ? 'bg-gradient-to-r from-gray-600 via-gray-500 to-gray-600' 
+                    : 'bg-gradient-to-r from-gray-500 via-gray-400 to-gray-500'
                 }`}>
                   <div className={`w-full h-full rounded-2xl overflow-hidden ${
-                    isDark ? 'bg-black' : 'bg-white'
+                    isDark ? 'bg-gray-900' : 'bg-gray-100'
                   }`}>
                     <img
                       src={profile.avatar}
                       alt={profile.name}
-                      className="w-fit h-fit object-cover grayscale contrast-110 brightness-105"
+                      className="w-full h-full object-cover grayscale"
                       onError={(e) => {
                         e.target.src = 'https://ui-avatars.com/api/?name=Shaniya+Sharma&size=200&background=666666&color=ffffff&bold=true';
                       }}
@@ -406,12 +381,11 @@ export default function Hero() {
                   </div>
                 </div>
 
-                {/* Status indicator */}
                 <motion.div
                   className={`absolute -bottom-2 -right-2 p-2.5 rounded-full border-2 ${
                     isDark
-                      ? 'bg-black border-orange-400'
-                      : 'bg-white border-orange-500'
+                      ? 'bg-gray-900 border-gray-500'
+                      : 'bg-gray-100 border-gray-500'
                   }`}
                   animate={{
                     scale: [1, 1.1, 1],
@@ -423,8 +397,8 @@ export default function Hero() {
                   }}
                 >
                   <span className="relative flex h-4 w-4">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-4 w-4 bg-orange-500"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gray-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-4 w-4 bg-gray-500"></span>
                   </span>
                 </motion.div>
               </motion.div>
@@ -444,20 +418,20 @@ export default function Hero() {
                     whileHover={{ scale: 1.05, y: -5 }}
                     className={`p-3 rounded-xl text-center transition-all duration-300 ${
                       isDark
-                        ? 'bg-white/5 backdrop-blur-sm border border-orange-500/20 hover:border-orange-400/40'
-                        : 'bg-white/80 backdrop-blur-sm shadow-md border border-orange-200/50 hover:border-orange-300 hover:shadow-lg'
+                        ? 'bg-white/5 backdrop-blur-sm border border-gray-600/30 hover:border-gray-400/40'
+                        : 'bg-white/50 backdrop-blur-sm border border-gray-300/30 hover:border-gray-400/40'
                     }`}
                   >
                     <Icon className={`w-5 h-5 mx-auto mb-1 ${
-                      isDark ? 'text-orange-400' : 'text-orange-500'
+                      isDark ? 'text-gray-400' : 'text-gray-600'
                     }`} />
                     <div className={`text-xl font-bold ${
-                      isDark ? 'text-orange-100' : 'text-gray-800'
+                      isDark ? 'text-white' : 'text-gray-900'
                     }`}>
                       {stat.value}
                     </div>
                     <div className={`text-xs ${
-                      isDark ? 'text-orange-300/70' : 'text-gray-600'
+                      isDark ? 'text-gray-300' : 'text-gray-600'
                     }`}>
                       {stat.label}
                     </div>
@@ -482,11 +456,11 @@ export default function Hero() {
         }}
       >
         <div className={`w-6 h-10 rounded-full border-2 flex items-start justify-center p-1 ${
-          isDark ? 'border-orange-400/50' : 'border-orange-400'
+          isDark ? 'border-gray-500' : 'border-gray-400'
         }`}>
           <motion.div
             className={`w-1 h-2 rounded-full ${
-              isDark ? 'bg-orange-400' : 'bg-orange-600'
+              isDark ? 'bg-gray-400' : 'bg-gray-600'
             }`}
             animate={{
               y: [0, 12, 0],
@@ -500,27 +474,14 @@ export default function Hero() {
         </div>
       </motion.div>
 
-      {/* CSS Animations - FIXED: Removed jsx attribute */}
       <style>{`
         @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) translateX(0px);
-            opacity: 0.3;
-          }
-          50% {
-            transform: translateY(-30px) translateX(20px);
-            opacity: 0.8;
-          }
+          0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }
+          50% { transform: translateY(-30px) translateX(20px); opacity: 0.8; }
         }
         @keyframes pulse {
-          0% {
-            transform: scale(1);
-            opacity: 0.3;
-          }
-          100% {
-            transform: scale(1.2);
-            opacity: 0.5;
-          }
+          0% { transform: scale(1); opacity: 0.3; }
+          100% { transform: scale(1.2); opacity: 0.5; }
         }
       `}</style>
     </section>

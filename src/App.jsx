@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div className="min-h-screen transition-colors duration-300">
-      {/* Background */}
-      <div className={`fixed inset-0 -z-10 ${isDark ? 'bg-black' : 'bg-gray-50'}`}>
+      {/* Background - Grey */}
+      <div className={`fixed inset-0 -z-10 ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}>
         {Array.from({ length: 25 }, (_, i) => ({
           id: i,
           x: Math.random() * 100,
@@ -25,7 +25,7 @@ function App() {
         })).map((particle) => (
           <div
             key={particle.id}
-            className={`absolute rounded-full ${isDark ? 'bg-orange-400/10' : 'bg-orange-400/15'}`}
+            className={`absolute rounded-full ${isDark ? 'bg-gray-500/10' : 'bg-gray-400/20'}`}
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
@@ -36,11 +36,11 @@ function App() {
           />
         ))}
         <div
-          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${isDark ? 'bg-orange-500/20' : 'bg-orange-300/30'}`}
+          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${isDark ? 'bg-gray-600/20' : 'bg-gray-300/30'}`}
           style={{ animation: 'pulse 8s ease-in-out infinite alternate' }}
         />
         <div
-          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${isDark ? 'bg-yellow-500/20' : 'bg-yellow-300/30'}`}
+          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${isDark ? 'bg-gray-700/20' : 'bg-gray-400/30'}`}
           style={{ animation: 'pulse 6s ease-in-out infinite alternate-reverse' }}
         />
       </div>

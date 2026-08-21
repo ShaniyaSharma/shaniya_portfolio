@@ -121,7 +121,7 @@ export default function Skills() {
 
   return (
     <section id="skills" className="relative min-h-screen py-20 overflow-hidden">
-      <div className={`absolute inset-0 ${isDark ? 'bg-black' : 'bg-gray-50'}`}>
+      <div className={`absolute inset-0 ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}>
         {Array.from({ length: 25 }, (_, i) => ({
           id: i,
           x: Math.random() * 100,
@@ -132,7 +132,7 @@ export default function Skills() {
         })).map((particle) => (
           <div
             key={particle.id}
-            className={`absolute rounded-full ${isDark ? 'bg-orange-400/10' : 'bg-orange-400/15'}`}
+            className={`absolute rounded-full ${isDark ? 'bg-gray-500/10' : 'bg-gray-400/20'}`}
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
@@ -143,11 +143,11 @@ export default function Skills() {
           />
         ))}
         <div
-          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${isDark ? 'bg-orange-500/20' : 'bg-orange-300/30'}`}
+          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${isDark ? 'bg-gray-600/20' : 'bg-gray-300/30'}`}
           style={{ animation: 'pulse 8s ease-in-out infinite alternate' }}
         />
         <div
-          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${isDark ? 'bg-yellow-500/20' : 'bg-yellow-300/30'}`}
+          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${isDark ? 'bg-gray-700/20' : 'bg-gray-400/30'}`}
           style={{ animation: 'pulse 6s ease-in-out infinite alternate-reverse' }}
         />
       </div>
@@ -165,7 +165,11 @@ export default function Skills() {
             transition={{ duration: 0.5 }}
             className="inline-block"
           >
-            <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${isDark ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' : 'bg-orange-100 text-orange-700 border border-orange-200'}`}>
+            <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
+              isDark 
+                ? 'bg-gray-700/30 text-gray-300 border border-gray-600/30' 
+                : 'bg-gray-200/50 text-gray-700 border border-gray-300/30'
+            }`}>
               <Sparkles className="w-4 h-4" />
               My Skills
             </span>
@@ -174,7 +178,9 @@ export default function Skills() {
             initial={{ y: 20, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ delay: 0.2 }}
-            className={`text-4xl md:text-5xl font-bold mt-4 mb-4 ${isDark ? 'text-orange-100' : 'text-gray-800'}`}
+            className={`text-4xl md:text-5xl font-bold mt-4 mb-4 ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}
           >
             My Expertise
           </motion.h2>
@@ -182,9 +188,13 @@ export default function Skills() {
             initial={{ width: 0 }}
             animate={isInView ? { width: '80px' } : { width: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className={`h-1 mx-auto rounded-full ${isDark ? 'bg-orange-400' : 'bg-orange-500'}`}
+            className={`h-1 mx-auto rounded-full ${
+              isDark ? 'bg-gray-400' : 'bg-gray-600'
+            }`}
           />
-          <p className={`text-lg mt-4 max-w-2xl mx-auto ${isDark ? 'text-orange-300/70' : 'text-gray-600'}`}>
+          <p className={`text-lg mt-4 max-w-2xl mx-auto ${
+            isDark ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Specialized in Cybersecurity, Full-Stack Development, and AI Prompt Engineering
           </p>
         </motion.div>
@@ -201,13 +211,19 @@ export default function Skills() {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`p-6 rounded-2xl transition-all duration-300 ${isDark ? 'bg-white/5 backdrop-blur-sm border border-orange-500/20 hover:border-orange-400/40 hover:bg-white/10' : 'bg-white/80 backdrop-blur-sm shadow-xl border border-orange-200/50 hover:border-orange-300 hover:shadow-2xl'}`}
+                className={`p-6 rounded-2xl transition-all duration-300 ${
+                  isDark 
+                    ? 'bg-white/5 backdrop-blur-sm border border-gray-600/30 hover:border-gray-400/40 hover:bg-white/10' 
+                    : 'bg-white/50 backdrop-blur-sm border border-gray-300/30 hover:border-gray-400/40 hover:bg-white/70'
+                }`}
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className={`p-2 rounded-lg bg-gradient-to-r ${category.bgColor}`}>
                     <Icon className={`w-6 h-6 ${category.color}`} />
                   </div>
-                  <h3 className={`text-xl font-semibold ${isDark ? 'text-orange-100' : 'text-gray-800'}`}>
+                  <h3 className={`text-xl font-semibold ${
+                    isDark ? 'text-white' : 'text-gray-900'
+                  }`}>
                     {category.title}
                   </h3>
                 </div>
@@ -215,10 +231,12 @@ export default function Skills() {
                   {category.skills.map((skill, idx) => (
                     <div
                       key={idx}
-                      className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300 ${isDark ? 'hover:bg-white/5' : 'hover:bg-orange-50'}`}
+                      className={`flex items-center gap-2 px-3 py-2 rounded-lg transition-all duration-300 ${
+                        isDark ? 'hover:bg-white/5' : 'hover:bg-gray-100/50'
+                      }`}
                     >
                       <span className="text-lg">{skill.icon}</span>
-                      <span className={isDark ? 'text-orange-200/80' : 'text-gray-700'}>
+                      <span className={isDark ? 'text-gray-300' : 'text-gray-700'}>
                         {skill.name}
                       </span>
                     </div>
@@ -233,10 +251,16 @@ export default function Skills() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className={`p-6 rounded-2xl transition-all duration-300 ${isDark ? 'bg-white/5 backdrop-blur-sm border border-orange-500/20' : 'bg-white/80 backdrop-blur-sm shadow-xl border border-orange-200/50'}`}
+          className={`p-6 rounded-2xl transition-all duration-300 ${
+            isDark 
+              ? 'bg-white/5 backdrop-blur-sm border border-gray-600/30' 
+              : 'bg-white/50 backdrop-blur-sm border border-gray-300/30'
+          }`}
         >
-          <h3 className={`text-xl font-semibold mb-6 flex items-center gap-2 ${isDark ? 'text-orange-100' : 'text-gray-800'}`}>
-            <Award className="w-5 h-5 text-orange-500" />
+          <h3 className={`text-xl font-semibold mb-6 flex items-center gap-2 ${
+            isDark ? 'text-white' : 'text-gray-900'
+          }`}>
+            <Award className="w-5 h-5 text-gray-400" />
             Additional Skills & Tools
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -247,10 +271,18 @@ export default function Skills() {
                   key={index}
                   variants={itemVariants}
                   whileHover={{ scale: 1.05, y: -5 }}
-                  className={`p-4 rounded-xl text-center transition-all duration-300 ${isDark ? 'bg-white/5 backdrop-blur-sm border border-orange-500/20 hover:border-orange-400/40' : 'bg-white/50 backdrop-blur-sm border border-orange-200/50 hover:border-orange-300'}`}
+                  className={`p-4 rounded-xl text-center transition-all duration-300 ${
+                    isDark 
+                      ? 'bg-white/5 backdrop-blur-sm border border-gray-600/30 hover:border-gray-400/40' 
+                      : 'bg-white/50 backdrop-blur-sm border border-gray-300/30 hover:border-gray-400/40'
+                  }`}
                 >
-                  <Icon className={`w-8 h-8 mx-auto mb-2 ${isDark ? 'text-orange-400' : 'text-orange-500'}`} />
-                  <p className={`text-sm font-medium ${isDark ? 'text-orange-200/80' : 'text-gray-700'}`}>
+                  <Icon className={`w-8 h-8 mx-auto mb-2 ${
+                    isDark ? 'text-gray-400' : 'text-gray-600'
+                  }`} />
+                  <p className={`text-sm font-medium ${
+                    isDark ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
                     {skill.name}
                   </p>
                 </motion.div>
@@ -265,20 +297,30 @@ export default function Skills() {
           animate={isInView ? "visible" : "hidden"}
           className="mt-12 text-center"
         >
-          <p className={`text-lg mb-4 ${isDark ? 'text-orange-300/70' : 'text-gray-600'}`}>
+          <p className={`text-lg mb-4 ${
+            isDark ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Want to know more about my skills and experience?
           </p>
           <div className="flex justify-center gap-4 flex-wrap">
             <a
               href="#contact"
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${isDark ? 'bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/30' : 'bg-orange-600 hover:bg-orange-700 text-white shadow-lg shadow-orange-600/30'}`}
+              className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                isDark
+                  ? 'bg-gray-600 hover:bg-gray-500 text-white shadow-lg shadow-gray-600/30'
+                  : 'bg-gray-700 hover:bg-gray-800 text-white shadow-lg shadow-gray-700/30'
+              }`}
             >
               <Users className="w-5 h-5" />
               Let's Collaborate
             </a>
             <a
               href="#projects"
-              className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 border-2 ${isDark ? 'border-orange-400 text-orange-400 hover:bg-orange-400/10' : 'border-orange-600 text-orange-600 hover:bg-orange-600/10'}`}
+              className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 border-2 ${
+                isDark
+                  ? 'border-gray-500 text-gray-300 hover:bg-gray-700/30'
+                  : 'border-gray-600 text-gray-700 hover:bg-gray-200/50'
+              }`}
             >
               <Star className="w-5 h-5" />
               View My Work
@@ -287,7 +329,6 @@ export default function Skills() {
         </motion.div>
       </div>
 
-      {/* CSS Animations - FIXED: Removed jsx attribute */}
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }

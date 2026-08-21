@@ -127,7 +127,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative min-h-screen py-20 overflow-hidden">
-      <div className={`absolute inset-0 ${isDark ? 'bg-black' : 'bg-gray-50'}`}>
+      <div className={`absolute inset-0 ${isDark ? 'bg-gray-900' : 'bg-gray-100'}`}>
         {Array.from({ length: 25 }, (_, i) => ({
           id: i,
           x: Math.random() * 100,
@@ -138,7 +138,7 @@ export default function Projects() {
         })).map((particle) => (
           <div
             key={particle.id}
-            className={`absolute rounded-full ${isDark ? 'bg-orange-400/10' : 'bg-orange-400/15'}`}
+            className={`absolute rounded-full ${isDark ? 'bg-gray-500/10' : 'bg-gray-400/20'}`}
             style={{
               left: `${particle.x}%`,
               top: `${particle.y}%`,
@@ -149,11 +149,11 @@ export default function Projects() {
           />
         ))}
         <div
-          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${isDark ? 'bg-orange-500/20' : 'bg-orange-300/30'}`}
+          className={`absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl ${isDark ? 'bg-gray-600/20' : 'bg-gray-300/30'}`}
           style={{ animation: 'pulse 8s ease-in-out infinite alternate' }}
         />
         <div
-          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${isDark ? 'bg-yellow-500/20' : 'bg-yellow-300/30'}`}
+          className={`absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl ${isDark ? 'bg-gray-700/20' : 'bg-gray-400/30'}`}
           style={{ animation: 'pulse 6s ease-in-out infinite alternate-reverse' }}
         />
       </div>
@@ -171,7 +171,11 @@ export default function Projects() {
             transition={{ duration: 0.5 }}
             className="inline-block"
           >
-            <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${isDark ? 'bg-orange-500/20 text-orange-300 border border-orange-500/30' : 'bg-orange-100 text-orange-700 border border-orange-200'}`}>
+            <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium ${
+              isDark 
+                ? 'bg-gray-700/30 text-gray-300 border border-gray-600/30' 
+                : 'bg-gray-200/50 text-gray-700 border border-gray-300/30'
+            }`}>
               <FaRocket className="w-4 h-4" />
               My Projects
             </span>
@@ -180,7 +184,9 @@ export default function Projects() {
             initial={{ y: 20, opacity: 0 }}
             animate={isInView ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ delay: 0.2 }}
-            className={`text-4xl md:text-5xl font-bold mt-4 mb-4 ${isDark ? 'text-orange-100' : 'text-gray-800'}`}
+            className={`text-4xl md:text-5xl font-bold mt-4 mb-4 ${
+              isDark ? 'text-white' : 'text-gray-900'
+            }`}
           >
             Featured Projects
           </motion.h2>
@@ -188,9 +194,13 @@ export default function Projects() {
             initial={{ width: 0 }}
             animate={isInView ? { width: '80px' } : { width: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className={`h-1 mx-auto rounded-full ${isDark ? 'bg-orange-400' : 'bg-orange-500'}`}
+            className={`h-1 mx-auto rounded-full ${
+              isDark ? 'bg-gray-400' : 'bg-gray-600'
+            }`}
           />
-          <p className={`text-lg mt-4 max-w-2xl mx-auto ${isDark ? 'text-orange-300/70' : 'text-gray-600'}`}>
+          <p className={`text-lg mt-4 max-w-2xl mx-auto ${
+            isDark ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Here are some of my recent projects showcasing my skills
           </p>
         </motion.div>
@@ -205,47 +215,67 @@ export default function Projects() {
             <motion.div
               key={project.id}
               variants={itemVariants}
-              className={`group p-6 rounded-2xl transition-all duration-300 ${isDark ? 'bg-white/5 backdrop-blur-sm border border-orange-500/20 hover:border-orange-400/40 hover:bg-white/10' : 'bg-white/80 backdrop-blur-sm shadow-xl border border-orange-200/50 hover:border-orange-300 hover:shadow-2xl'}`}
+              className={`group p-6 rounded-2xl transition-all duration-300 ${
+                isDark 
+                  ? 'bg-white/5 backdrop-blur-sm border border-gray-600/30 hover:border-gray-400/40 hover:bg-white/10' 
+                  : 'bg-white/50 backdrop-blur-sm border border-gray-300/30 hover:border-gray-400/40 hover:bg-white/70'
+              }`}
             >
               <div className="flex items-start justify-between mb-4">
                 <div className="text-4xl">{project.icon}</div>
                 <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                   project.status === 'Live'
-                    ? isDark ? 'bg-green-500/20 text-green-300' : 'bg-green-100 text-green-700'
+                    ? isDark ? 'bg-green-500/20 text-green-300' : 'bg-green-500/20 text-green-700'
                     : project.status === 'Completed'
-                    ? isDark ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-100 text-blue-700'
-                    : isDark ? 'bg-yellow-500/20 text-yellow-300' : 'bg-yellow-100 text-yellow-700'
+                    ? isDark ? 'bg-blue-500/20 text-blue-300' : 'bg-blue-500/20 text-blue-700'
+                    : isDark ? 'bg-yellow-500/20 text-yellow-300' : 'bg-yellow-500/20 text-yellow-700'
                 }`}>
                   {project.status}
                 </span>
               </div>
 
-              <div className={`inline-block px-2 py-0.5 rounded-md text-xs font-medium mb-2 ${isDark ? 'bg-orange-500/10 text-orange-300 border border-orange-500/20' : 'bg-orange-100 text-orange-700 border border-orange-200'}`}>
+              <div className={`inline-block px-2 py-0.5 rounded-md text-xs font-medium mb-2 ${
+                isDark 
+                  ? 'bg-gray-700/30 text-gray-300 border border-gray-600/30' 
+                  : 'bg-gray-200/50 text-gray-700 border border-gray-300/30'
+              }`}>
                 {project.category}
               </div>
 
-              <h3 className={`text-xl font-semibold mb-2 ${isDark ? 'text-orange-100' : 'text-gray-800'}`}>
+              <h3 className={`text-xl font-semibold mb-2 ${
+                isDark ? 'text-white' : 'text-gray-900'
+              }`}>
                 {project.title}
               </h3>
-              <p className={`text-sm mb-3 ${isDark ? 'text-orange-300/70' : 'text-gray-600'}`}>
+              <p className={`text-sm mb-3 ${
+                isDark ? 'text-gray-300' : 'text-gray-700'
+              }`}>
                 {project.description}
               </p>
 
               <div className="mb-4">
-                <p className={`text-xs font-medium mb-1 ${isDark ? 'text-orange-300/50' : 'text-gray-500'}`}>
+                <p className={`text-xs font-medium mb-1 ${
+                  isDark ? 'text-gray-300' : 'text-gray-700'
+                }`}>
                   Key Features:
                 </p>
                 <div className="flex flex-wrap gap-1">
                   {project.features.slice(0, 3).map((feature, i) => (
                     <span
                       key={i}
-                      className={`text-xs px-2 py-0.5 rounded-full ${isDark ? 'bg-orange-500/5 text-orange-300/60 border border-orange-500/10' : 'bg-orange-50 text-gray-600 border border-orange-100'}`}
+                      className={`text-xs px-2 py-0.5 rounded-full ${
+                        isDark 
+                          ? 'bg-gray-700/20 text-gray-300 border border-gray-600/20' 
+                          : 'bg-gray-200/30 text-gray-700 border border-gray-300/20'
+                      }`}
                     >
                       {feature}
                     </span>
                   ))}
                   {project.features.length > 3 && (
-                    <span className={`text-xs px-2 py-0.5 rounded-full ${isDark ? 'text-orange-300/40' : 'text-gray-400'}`}>
+                    <span className={`text-xs px-2 py-0.5 rounded-full ${
+                      isDark ? 'text-gray-400' : 'text-gray-500'
+                    }`}>
                       +{project.features.length - 3} more
                     </span>
                   )}
@@ -256,7 +286,11 @@ export default function Projects() {
                 {project.tech.map((tech, i) => (
                   <span
                     key={i}
-                    className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium ${isDark ? 'bg-orange-500/10 text-orange-300 border border-orange-500/20' : 'bg-orange-100 text-orange-700 border border-orange-200'}`}
+                    className={`inline-flex items-center px-2 py-1 rounded-md text-xs font-medium ${
+                      isDark 
+                        ? 'bg-gray-700/30 text-gray-300 border border-gray-600/30' 
+                        : 'bg-gray-200/50 text-gray-700 border border-gray-300/30'
+                    }`}
                   >
                     {getTechIcon(tech)}
                     {tech}
@@ -264,12 +298,16 @@ export default function Projects() {
                 ))}
               </div>
 
-              <div className="flex items-center gap-4 pt-3 border-t border-orange-500/10">
+              <div className="flex items-center gap-4 pt-3 border-t border-gray-600/30">
                 <a
                   href={project.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${isDark ? 'text-orange-400 hover:text-orange-300' : 'text-orange-600 hover:text-orange-700'}`}
+                  className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                    isDark 
+                      ? 'text-gray-400 hover:text-gray-300' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
                 >
                   <FaGithub className="w-4 h-4" />
                   GitHub
@@ -278,7 +316,11 @@ export default function Projects() {
                   href={project.demo}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${isDark ? 'text-orange-400 hover:text-orange-300' : 'text-orange-600 hover:text-orange-700'}`}
+                  className={`inline-flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                    isDark 
+                      ? 'text-gray-400 hover:text-gray-300' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
                 >
                   <FaExternalLinkAlt className="w-4 h-4" />
                   Live Demo
@@ -294,14 +336,20 @@ export default function Projects() {
           animate={isInView ? "visible" : "hidden"}
           className="mt-12 text-center"
         >
-          <p className={`text-lg mb-4 ${isDark ? 'text-orange-300/70' : 'text-gray-600'}`}>
+          <p className={`text-lg mb-4 ${
+            isDark ? 'text-gray-300' : 'text-gray-600'
+          }`}>
             Want to see more projects?
           </p>
           <a
             href="https://github.com/ShaniyaSharma"
             target="_blank"
             rel="noopener noreferrer"
-            className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${isDark ? 'bg-orange-500 hover:bg-orange-600 text-white shadow-lg shadow-orange-500/30' : 'bg-orange-600 hover:bg-orange-700 text-white shadow-lg shadow-orange-600/30'}`}
+            className={`inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+              isDark
+                ? 'bg-gray-600 hover:bg-gray-500 text-white shadow-lg shadow-gray-600/30'
+                : 'bg-gray-700 hover:bg-gray-800 text-white shadow-lg shadow-gray-700/30'
+            }`}
           >
             <FaGithub className="w-5 h-5" />
             View All on GitHub
@@ -309,7 +357,6 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* CSS Animations - FIXED: Removed jsx attribute */}
       <style>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.3; }

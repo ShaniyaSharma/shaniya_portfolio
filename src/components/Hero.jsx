@@ -155,7 +155,6 @@ export default function Hero() {
             variants={containerVariants}
             className="flex-1 text-center lg:text-left order-2 lg:order-1"
           >
-            {/* Badge */}
             <motion.div
               variants={itemVariants}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6 ${
@@ -171,7 +170,6 @@ export default function Hero() {
               <span className="text-sm font-medium">Available for work</span>
             </motion.div>
 
-            {/* Name & Title - White Text */}
             <motion.h1
               variants={itemVariants}
               className={`text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold mb-4 ${
@@ -213,7 +211,6 @@ export default function Hero() {
               {profile.description}
             </motion.p>
 
-            {/* Education & Skills Section */}
             <motion.div
               variants={itemVariants}
               className="mb-8"
@@ -277,7 +274,6 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* CTA Buttons - Grey Theme */}
             <motion.div
               variants={itemVariants}
               className="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start"
@@ -311,7 +307,6 @@ export default function Hero() {
               </motion.a>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
               variants={itemVariants}
               className="flex items-center gap-3 mt-8 justify-center lg:justify-start"
@@ -345,7 +340,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Content - Profile Image */}
+          {/* Right Content - Profile Image - Color Photo */}
           <motion.div
             variants={containerVariants}
             className="flex-1 flex flex-col items-center order-1 lg:order-2"
@@ -373,9 +368,9 @@ export default function Hero() {
                     <img
                       src={profile.avatar}
                       alt={profile.name}
-                      className="w-full h-full object-cover grayscale"
+                      className="w-full h-full object-cover"
                       onError={(e) => {
-                        e.target.src = 'https://ui-avatars.com/api/?name=Shaniya+Sharma&size=200&background=666666&color=ffffff&bold=true';
+                        e.target.src = 'https://ui-avatars.com/api/?name=Shaniya+Sharma&size=200&background=6b7280&color=ffffff&bold=true';
                       }}
                     />
                   </div>
@@ -404,7 +399,6 @@ export default function Hero() {
               </motion.div>
             </motion.div>
 
-            {/* Stats Cards */}
             <motion.div
               variants={containerVariants}
               className="grid grid-cols-2 gap-3 mt-6 w-full max-w-sm"
@@ -443,7 +437,6 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
         animate={{
